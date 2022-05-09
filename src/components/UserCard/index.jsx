@@ -13,13 +13,12 @@ class UserCard extends React.Component {
       })),
     };
   }
+
+  createDataUser({ data } = this.state) {
+    return data.map((user) => <UserCardList data={user} key={user.id} />);
+  }
   render() {
-    const { data } = this.state;
-    const dataUser = data.map((user) => <UserCardList data={user} key={user.id} />);
-    return <ul className="userCardsContainer">{dataUser}</ul>;
-    // <ul className="userCardsContainer">
-    //     <UserCardList data={data} />
-    //   </ul>
+    return <ul className="userCardsContainer">{this.createDataUser()}</ul>;
   }
 }
 
